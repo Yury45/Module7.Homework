@@ -1,13 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Module7.Homework.Couriers;
+using Module7.Homework.Couriers.@base;
 
-namespace Module7.Homework.Model.@base
+namespace Module7.Homework.Deliveries.@base;
+
+internal abstract class Delivery<T> where T : Courier
 {
-    internal abstract class Delivery
+    protected internal string? Address { get; set; }
+
+    protected internal bool IsOversize { get; set; }
+
+    protected internal string Number { get; set; }
+
+    protected internal bool IsFarPoint { get; set; }
+
+    public Delivery()
     {
-        public string Address;
+        IsFarPoint = Randomizer.GetRandomBool();
     }
+
+    abstract protected internal Courier SetCourier();
 }
