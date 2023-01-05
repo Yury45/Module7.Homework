@@ -4,6 +4,7 @@ using Module7.Homework.Models.Product;
 using System.Net;
 using Module7.Homework.Couriers;
 using Module7.Homework.Deliveries;
+using Module7.Homework.Extentions;
 
 namespace Module7.Homework.Order.@base;
 
@@ -59,7 +60,7 @@ internal class Order<TDelivery> where TDelivery : Delivery<Courier>, new()
          * инициализация поля номера заказа:
          * строковое / числовое представление
         */
-        Number = Randomizer.GetRandomNumber().ToString();
+        Number = Randomizer.GetRandomNumber().ToNewFormat();
     }
 
     private void SetDescription()
